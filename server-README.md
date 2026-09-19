@@ -224,8 +224,7 @@ Jobs are keyed by an `idempotencyKey` so re-enqueuing the same piece of work (e.
 
 ## Testing
 
-```bash
 npm test
-```
+
 
 Uses Jest + Supertest, with `mongodb-memory-server` spinning up an in-memory MongoDB for each test file (see `tests/setup.js`) so tests don't touch a real database. Covers auth, project isolation, mastery/growth calculation, AI structured-output validation, and background job/event idempotency.
