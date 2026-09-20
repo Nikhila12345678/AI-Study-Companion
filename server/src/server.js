@@ -1,6 +1,7 @@
 import { createApp } from './app.js';
 import { connectDB } from './config/db.js';
 import { env } from './config/env.js';
+import { runOnce } from './jobs/worker.js';
 
 async function start() {
   await connectDB();
@@ -9,6 +10,14 @@ async function start() {
     // eslint-disable-next-line no-console
     console.log(`[server] AI Study Companion API listening on port ${env.port}`);
   });
+
+  setInterval(async () => {
+  try {
+    await runOnce();
+  } catch (err) {
+    console.error('[worker] polling failed:', err.message);
+  }
+}, env.jobPollIntervalMs);
 }
 
 start().catch((err) => {
