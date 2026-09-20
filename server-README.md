@@ -1,3 +1,6 @@
+# LIVE URL
+  https://ai-study-companion-sandy.vercel.app/
+ 
 # AI Study Companion — Backend
 
 This is the API server for AI Study Companion. It handles auth, storing and processing uploaded study material, running the tutor/quiz/mastery logic, and exposing the data the frontend renders. Everything is a REST API over Express and MongoDB.
